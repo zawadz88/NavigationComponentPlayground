@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.github.zawadz88.navigationcomponentplayground.login.NAVIGATION_RESULT_LOGGED_IN
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationListener
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationResult
 import kotlinx.android.synthetic.main.fragment_offer.fragmentApplyButton
@@ -35,7 +36,10 @@ class OfferFragment : BackNavigationListener, BaseFragment() {
     }
 
     override fun onNavigationResult(result: BackNavigationResult) {
-        if (result.requestCode == REQUEST_CODE_LOGIN && result.resultCode == NAVIGATION_RESULT_OK) {
+        println("OfferFragment onNavigationResult: $result")
+        if ((result.requestCode == REQUEST_CODE_LOGIN && result.resultCode == NAVIGATION_RESULT_OK) ||
+            result.resultCode == NAVIGATION_RESULT_LOGGED_IN
+        ) {
             goToApply()
         }
     }

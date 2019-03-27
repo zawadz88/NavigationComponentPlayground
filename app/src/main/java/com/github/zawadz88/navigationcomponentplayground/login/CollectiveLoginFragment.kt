@@ -1,9 +1,12 @@
-package com.github.zawadz88.navigationcomponentplayground
+package com.github.zawadz88.navigationcomponentplayground.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.github.zawadz88.navigationcomponentplayground.BaseFragment
+import com.github.zawadz88.navigationcomponentplayground.NAVIGATION_RESULT_OK
+import com.github.zawadz88.navigationcomponentplayground.R
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationListener
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationResult
 import kotlinx.android.synthetic.main.fragment_collective_login.fragmentLoginWithPasswordButton
@@ -27,11 +30,15 @@ class CollectiveLoginFragment : BaseFragment(), BackNavigationListener {
             navigateBackWithResult(NAVIGATION_RESULT_OK)
         }
         fragmentLoginWithPasswordButton.setOnClickListener {
-            navigateForResult(R.id.action_collectiveLoginFragment_to_loginWithPasswordFragment, REQUEST_CODE_COLLECTIVE_LOGIN)
+            navigateForResult(
+                R.id.action_collectiveLoginFragment_to_loginWithPasswordFragment,
+                REQUEST_CODE_COLLECTIVE_LOGIN
+            )
         }
     }
 
     override fun onNavigationResult(result: BackNavigationResult) {
+        println("CollectiveLoginFragment onNavigationResult: $result")
         if (result.requestCode == REQUEST_CODE_COLLECTIVE_LOGIN && result.resultCode == NAVIGATION_RESULT_OK) {
             navigateBackWithResult(NAVIGATION_RESULT_OK)
         }

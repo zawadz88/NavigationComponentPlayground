@@ -1,4 +1,4 @@
-package com.github.zawadz88.navigationcomponentplayground
+package com.github.zawadz88.navigationcomponentplayground.login
 
 import android.os.Bundle
 import android.os.Handler
@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.postDelayed
 import androidx.navigation.fragment.findNavController
+import com.github.zawadz88.navigationcomponentplayground.BaseFragment
+import com.github.zawadz88.navigationcomponentplayground.R
+
+const val NAVIGATION_RESULT_LOGGED_IN = 123
 
 class DeepLinkLoginFragment : BaseFragment() {
 
@@ -23,11 +27,15 @@ class DeepLinkLoginFragment : BaseFragment() {
 
         // imitates a successful login
         Handler().postDelayed(3000L) {
-            // TODO: 27/03/2019 go to Apply offer
-            val navController = findNavController()
-            if (navController.popBackStack(R.id.collectiveLoginFragment, true)) return@postDelayed
-            if (navController.popBackStack(R.id.loginWithPasswordFragment, true)) return@postDelayed
-            navController.popBackStack()
+            if (navigateBackWithResult(
+                    destination = R.id.collectiveLoginFragment,
+                    resultCode = NAVIGATION_RESULT_LOGGED_IN
+                )) return@postDelayed
+            if (navigateBackWithResult(
+                    destination = R.id.loginWithPasswordFragment,
+                    resultCode = NAVIGATION_RESULT_LOGGED_IN
+                )) return@postDelayed
+            findNavController().popBackStack()
         }
     }
 }

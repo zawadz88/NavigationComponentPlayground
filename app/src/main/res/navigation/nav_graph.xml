@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginWithPasswordFragment"
-        android:name="com.github.zawadz88.navigationcomponentplayground.LoginWithPasswordFragment"
+        android:name="com.github.zawadz88.navigationcomponentplayground.login.LoginWithPasswordFragment"
         android:label="fragment_login_with_password"
         tools:layout="@layout/fragment_login_with_password" />
     <fragment
@@ -47,7 +47,7 @@
         tools:layout="@layout/fragment_apply" />
     <fragment
         android:id="@+id/collectiveLoginFragment"
-        android:name="com.github.zawadz88.navigationcomponentplayground.CollectiveLoginFragment"
+        android:name="com.github.zawadz88.navigationcomponentplayground.login.CollectiveLoginFragment"
         android:label="fragment_collective_login"
         tools:layout="@layout/fragment_collective_login" >
         <action
@@ -56,11 +56,14 @@
     </fragment>
     <fragment
         android:id="@+id/deepLinkLoginFragment"
-        android:name="com.github.zawadz88.navigationcomponentplayground.DeepLinkLoginFragment"
+        android:name="com.github.zawadz88.navigationcomponentplayground.login.DeepLinkLoginFragment"
         android:label="fragment_deep_link_login"
         tools:layout="@layout/fragment_deep_link_login" >
         <deepLink
-            android:id="@+id/deepLink"
+            android:id="@+id/customSchemeLink"
             app:uri="ncp://login/" />
+        <deepLink
+            android:id="@+id/webLink"
+            app:uri="https://zawadzki.dev/navigationsample" />
     </fragment>
 </navigation>

@@ -1,9 +1,12 @@
-package com.github.zawadz88.navigationcomponentplayground
+package com.github.zawadz88.navigationcomponentplayground.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.github.zawadz88.navigationcomponentplayground.BaseFragment
+import com.github.zawadz88.navigationcomponentplayground.NAVIGATION_RESULT_OK
+import com.github.zawadz88.navigationcomponentplayground.R
 import kotlinx.android.synthetic.main.fragment_login_with_password.logMeInButton
 
 class LoginWithPasswordFragment : BaseFragment() {
