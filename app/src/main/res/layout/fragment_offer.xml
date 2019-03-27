@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".OfferFragment">
+
+    <Button
+        android:id="@+id/fragmentLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login &amp; apply"
+        tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/fragmentLoginWithPasswordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login with password &amp; apply"
+        tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/fragmentApplyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apply for an offer"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.github.zawadz88.navigationcomponentplayground.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_offerFragment"
+            app:destination="@id/offerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_collectiveLoginFragment"
+            app:destination="@id/collectiveLoginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_loginWithPasswordFragment"
+            app:destination="@id/loginWithPasswordFragment"
+            app:launchSingleTop="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginWithPasswordFragment"
+        android:name="com.github.zawadz88.navigationcomponentplayground.LoginWithPasswordFragment"
+        android:label="fragment_login_with_password"
+        tools:layout="@layout/fragment_login_with_password" />
+    <fragment
+        android:id="@+id/offerFragment"
+        android:name="com.github.zawadz88.navigationcomponentplayground.OfferFragment"
+        android:label="fragment_offer"
+        tools:layout="@layout/fragment_offer" >
+        <action
+            android:id="@+id/action_offerFragment_to_applyFragment"
+            app:destination="@id/applyFragment" />
+        <action
+            android:id="@+id/action_offerFragment_to_loginWithPasswordFragment"
+            app:destination="@id/loginWithPasswordFragment" />
+        <action
+            android:id="@+id/action_offerFragment_to_collectiveLoginFragment"
+            app:destination="@id/collectiveLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/applyFragment"
+        android:name="com.github.zawadz88.navigationcomponentplayground.ApplyFragment"
+        android:label="fragment_apply"
+        tools:layout="@layout/fragment_apply" />
+    <fragment
+        android:id="@+id/collectiveLoginFragment"
+        android:name="com.github.zawadz88.navigationcomponentplayground.CollectiveLoginFragment"
+        android:label="fragment_collective_login"
+        tools:layout="@layout/fragment_collective_login" >
+        <action
+            android:id="@+id/action_collectiveLoginFragment_to_loginWithPasswordFragment"
+            app:destination="@id/loginWithPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deepLinkLoginFragment"
+        android:name="com.github.zawadz88.navigationcomponentplayground.DeepLinkLoginFragment"
+        android:label="fragment_deep_link_login"
+        tools:layout="@layout/fragment_deep_link_login" >
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="ncp://login/" />
+    </fragment>
+</navigation>
