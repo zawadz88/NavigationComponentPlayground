@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_login_with_password.logMeInButton
 
 class LoginWithPasswordFragment : BaseFragment() {
@@ -21,11 +20,7 @@ class LoginWithPasswordFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
 
         logMeInButton.setOnClickListener {
-            val popBackStackResult = findNavController().popBackStack(R.id.collectiveLoginFragment, true)
-            println("popBackStackResult: $popBackStackResult")
-            if (popBackStackResult) return@setOnClickListener
-
-            findNavController().popBackStack()
+            navigateBackWithResult(NAVIGATION_RESULT_OK)
         }
     }
 }

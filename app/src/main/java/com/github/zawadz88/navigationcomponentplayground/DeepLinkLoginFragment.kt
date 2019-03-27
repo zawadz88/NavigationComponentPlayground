@@ -20,10 +20,14 @@ class DeepLinkLoginFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        // imitates a successful login
         Handler().postDelayed(3000L) {
-            if (findNavController().popBackStack(R.id.collectiveLoginFragment, true)) return@postDelayed
-            if (findNavController().popBackStack(R.id.loginWithPasswordFragment, true)) return@postDelayed
-            findNavController().popBackStack()
+            // TODO: 27/03/2019 go to Apply offer
+            val navController = findNavController()
+            if (navController.popBackStack(R.id.collectiveLoginFragment, true)) return@postDelayed
+            if (navController.popBackStack(R.id.loginWithPasswordFragment, true)) return@postDelayed
+            navController.popBackStack()
         }
     }
 }
