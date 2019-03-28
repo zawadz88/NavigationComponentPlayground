@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import androidx.navigation.fragment.findNavController
@@ -44,7 +45,19 @@ abstract class BaseFragment : Fragment() {
         println("onDestroy: ${this::class.java.simpleName}")
     }
 
-    protected fun navigateForResult(
+    fun navigateForResult(
+        requestCode: Int, navDirections: NavDirections, navOptions: NavOptions? = null,
+        navigatorExtras: Navigator.Extras? = null
+    ) =
+        navigateForResult(
+            resId = navDirections.actionId,
+            requestCode = requestCode,
+            args = navDirections.arguments,
+            navOptions = navOptions,
+            navigatorExtras = navigatorExtras
+        )
+
+    fun navigateForResult(
         @IdRes resId: Int, requestCode: Int, args: Bundle? = null, navOptions: NavOptions? = null,
         navigatorExtras: Navigator.Extras? = null
     ) {
@@ -54,9 +67,11 @@ abstract class BaseFragment : Fragment() {
         findNavController().navigate(resId, argsWithRequestCode, navOptions, navigatorExtras)
     }
 
-    protected fun navigateBackWithResult(resultCode: Int, data: Bundle? = null): Boolean = navigateBackWithResult(DESTINATION_NOT_SET, BackNavigationResult(requestCode, resultCode, data))
+    protected fun navigateBackWithResult(resultCode: Int, data: Bundle? = null): Boolean =
+        navigateBackWithResult(DESTINATION_NOT_SET, BackNavigationResult(requestCode, resultCode, data))
 
-    protected fun navigateBackWithResult(@IdRes destination: Int, resultCode: Int, data: Bundle? = null): Boolean = navigateBackWithResult(destination, BackNavigationResult(requestCode, resultCode, data))
+    protected fun navigateBackWithResult(@IdRes destination: Int, resultCode: Int, data: Bundle? = null): Boolean =
+        navigateBackWithResult(destination, BackNavigationResult(requestCode, resultCode, data))
 
     private fun navigateBackWithResult(@IdRes destination: Int, result: BackNavigationResult): Boolean {
         val childFragmentManager = requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment)?.childFragmentManager

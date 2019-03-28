@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.github.zawadz88.navigationcomponentplayground.login.NAVIGATION_RESULT_LOGGED_IN
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationListener
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationResult
@@ -16,6 +18,10 @@ private const val REQUEST_CODE_LOGIN = 1
 
 class OfferFragment : BackNavigationListener, BaseFragment() {
 
+    private val args: OfferFragmentArgs by navArgs()
+
+    private val myId: Int by lazy { args.myId }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,12 +32,13 @@ class OfferFragment : BackNavigationListener, BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        Toast.makeText(requireContext(), "myId: $myId", Toast.LENGTH_SHORT).show()
         fragmentApplyButton.setOnClickListener { goToApply() }
         fragmentLoginWithPasswordButton.setOnClickListener {
-            navigateForResult(R.id.action_offerFragment_to_loginWithPasswordFragment, REQUEST_CODE_LOGIN)
+            navigateForResult(REQUEST_CODE_LOGIN, OfferFragmentDirections.actionOfferFragmentToLoginWithPasswordFragment())
         }
         fragmentLoginButton.setOnClickListener {
-            navigateForResult(R.id.action_offerFragment_to_collectiveLoginFragment, REQUEST_CODE_LOGIN)
+            navigateForResult(REQUEST_CODE_LOGIN, OfferFragmentDirections.actionOfferFragmentToCollectiveLoginFragment())
         }
     }
 
@@ -45,6 +52,6 @@ class OfferFragment : BackNavigationListener, BaseFragment() {
     }
 
     private fun goToApply() {
-        findNavController().navigate(R.id.action_offerFragment_to_applyFragment)
+        findNavController().navigate(OfferFragmentDirections.actionOfferFragmentToApplyFragment())
     }
 }

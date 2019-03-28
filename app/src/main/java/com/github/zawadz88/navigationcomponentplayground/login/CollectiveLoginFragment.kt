@@ -30,10 +30,7 @@ class CollectiveLoginFragment : BaseFragment(), BackNavigationListener {
             navigateBackWithResult(NAVIGATION_RESULT_OK)
         }
         fragmentLoginWithPasswordButton.setOnClickListener {
-            navigateForResult(
-                R.id.action_collectiveLoginFragment_to_loginWithPasswordFragment,
-                REQUEST_CODE_COLLECTIVE_LOGIN
-            )
+            navigateForResult(REQUEST_CODE_COLLECTIVE_LOGIN, CollectiveLoginFragmentDirections.actionCollectiveLoginFragmentToLoginWithPasswordFragment())
         }
     }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
@@ -8,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.github.zawadz88.navigationcomponentplayground.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_offerFragment"
             app:destination="@id/offerFragment" />
@@ -29,7 +30,12 @@
         android:id="@+id/offerFragment"
         android:name="com.github.zawadz88.navigationcomponentplayground.OfferFragment"
         android:label="fragment_offer"
-        tools:layout="@layout/fragment_offer" >
+        tools:layout="@layout/fragment_offer">
+
+        <argument
+            android:name="myId"
+            app:argType="integer"
+            app:nullable="false" />
         <action
             android:id="@+id/action_offerFragment_to_applyFragment"
             app:destination="@id/applyFragment" />
@@ -49,7 +55,7 @@
         android:id="@+id/collectiveLoginFragment"
         android:name="com.github.zawadz88.navigationcomponentplayground.login.CollectiveLoginFragment"
         android:label="fragment_collective_login"
-        tools:layout="@layout/fragment_collective_login" >
+        tools:layout="@layout/fragment_collective_login">
         <action
             android:id="@+id/action_collectiveLoginFragment_to_loginWithPasswordFragment"
             app:destination="@id/loginWithPasswordFragment" />
@@ -58,7 +64,7 @@
         android:id="@+id/deepLinkLoginFragment"
         android:name="com.github.zawadz88.navigationcomponentplayground.login.DeepLinkLoginFragment"
         android:label="fragment_deep_link_login"
-        tools:layout="@layout/fragment_deep_link_login" >
+        tools:layout="@layout/fragment_deep_link_login">
         <deepLink
             android:id="@+id/customSchemeLink"
             app:uri="ncp://login/" />

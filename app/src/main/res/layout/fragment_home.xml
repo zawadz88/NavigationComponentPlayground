@@ -39,5 +39,11 @@
         android:layout_height="wrap_content"
         android:text="Go to offer"
         tools:ignore="HardcodedText" />
+    <Button
+        android:id="@+id/sendNotificationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send notification for the offer"
+        tools:ignore="HardcodedText" />
 
 </LinearLayout>
