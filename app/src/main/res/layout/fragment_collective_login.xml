@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context=".OfferFragment">
 
+    <include layout="@layout/appbar" />
+
     <Button
         android:id="@+id/logMeInButton"
         android:layout_width="wrap_content"

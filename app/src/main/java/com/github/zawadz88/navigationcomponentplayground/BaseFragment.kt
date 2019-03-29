@@ -1,6 +1,7 @@
 package com.github.zawadz88.navigationcomponentplayground
 
 import android.os.Bundle
+import androidx.annotation.CallSuper
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -10,6 +11,7 @@ import androidx.navigation.Navigator
 import androidx.navigation.fragment.findNavController
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationListener
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationResult
+import kotlinx.android.synthetic.main.appbar.toolbar
 import kotlin.properties.Delegates
 
 private const val ARGUMENT_NAVIGATION_REQUEST_CODE = "NAVIGATION_REQUEST_CODE"
@@ -21,6 +23,8 @@ const val NAVIGATION_RESULT_CANCELED = 0
 const val NAVIGATION_RESULT_OK = -1
 
 abstract class BaseFragment : Fragment() {
+
+    protected open val hasUpNavigation: Boolean = true
 
     private val requestCode: Int
         get() = arguments?.getInt(ARGUMENT_NAVIGATION_REQUEST_CODE, REQUEST_CODE_NOT_SET) ?: REQUEST_CODE_NOT_SET
@@ -43,6 +47,19 @@ abstract class BaseFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         println("onDestroy: ${this::class.java.simpleName}")
+    }
+
+    @CallSuper
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        toolbar?.apply {
+            title = findNavController().currentDestination?.label
+            if (!hasUpNavigation) return@apply
+
+            setNavigationIcon(R.drawable.ic_back)
+            setNavigationOnClickListener { navigateUp() }
+        }
     }
 
     fun navigateForResult(
@@ -72,6 +89,8 @@ abstract class BaseFragment : Fragment() {
 
     protected fun navigateBackWithResult(@IdRes destination: Int, resultCode: Int, data: Bundle? = null): Boolean =
         navigateBackWithResult(destination, BackNavigationResult(requestCode, resultCode, data))
+
+    protected fun navigateUp(): Boolean = findNavController().navigateUp()
 
     private fun navigateBackWithResult(@IdRes destination: Int, result: BackNavigationResult): Boolean {
         val childFragmentManager = requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment)?.childFragmentManager

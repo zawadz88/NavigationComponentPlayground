@@ -2,6 +2,10 @@
     <string name="app_name">NavigationComponentPlayground</string>
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_label_home">Home screen</string>
+    <string name="fragment_label_offer">Offer screen</string>
+    <string name="fragment_label_login_with_password">Login with password screen</string>
+    <string name="fragment_label_collective_login">Collective screen</string>
+    <string name="fragment_label_apply">Apply screen</string>
+    <string name="fragment_label_deep_link">Deep link screen</string>
 </resources>

@@ -21,6 +21,8 @@ private const val NOTIFICATION_CHANNEL_ID = "dummy channel id"
 
 class HomeFragment : BaseFragment() {
 
+    override val hasUpNavigation: Boolean = false
+
     private val notificationManager: NotificationManager by lazy { requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager }
 
     override fun onCreateView(

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.github.zawadz88.navigationcomponentplayground.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/fragment_label_home"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_offerFragment"
@@ -24,12 +24,12 @@
     <fragment
         android:id="@+id/loginWithPasswordFragment"
         android:name="com.github.zawadz88.navigationcomponentplayground.login.LoginWithPasswordFragment"
-        android:label="fragment_login_with_password"
+        android:label="@string/fragment_label_login_with_password"
         tools:layout="@layout/fragment_login_with_password" />
     <fragment
         android:id="@+id/offerFragment"
         android:name="com.github.zawadz88.navigationcomponentplayground.OfferFragment"
-        android:label="fragment_offer"
+        android:label="@string/fragment_label_offer"
         tools:layout="@layout/fragment_offer">
 
         <argument
@@ -49,12 +49,12 @@
     <fragment
         android:id="@+id/applyFragment"
         android:name="com.github.zawadz88.navigationcomponentplayground.ApplyFragment"
-        android:label="fragment_apply"
+        android:label="@string/fragment_label_apply"
         tools:layout="@layout/fragment_apply" />
     <fragment
         android:id="@+id/collectiveLoginFragment"
         android:name="com.github.zawadz88.navigationcomponentplayground.login.CollectiveLoginFragment"
-        android:label="fragment_collective_login"
+        android:label="@string/fragment_label_collective_login"
         tools:layout="@layout/fragment_collective_login">
         <action
             android:id="@+id/action_collectiveLoginFragment_to_loginWithPasswordFragment"
@@ -63,7 +63,7 @@
     <fragment
         android:id="@+id/deepLinkLoginFragment"
         android:name="com.github.zawadz88.navigationcomponentplayground.login.DeepLinkLoginFragment"
-        android:label="fragment_deep_link_login"
+        android:label="@string/fragment_label_deep_link"
         tools:layout="@layout/fragment_deep_link_login">
         <deepLink
             android:id="@+id/customSchemeLink"

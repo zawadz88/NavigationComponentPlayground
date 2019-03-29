@@ -3,42 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".HomeFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+    <include layout="@layout/appbar" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
     <Button
         android:id="@+id/fragmentLoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
         tools:ignore="HardcodedText" />
+
     <Button
         android:id="@+id/fragmentLoginWithPasswordButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login with password"
         tools:ignore="HardcodedText" />
+
     <Button
         android:id="@+id/fragmentOfferButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go to offer"
         tools:ignore="HardcodedText" />
+
     <Button
         android:id="@+id/sendNotificationButton"
         android:layout_width="wrap_content"
