@@ -10,6 +10,7 @@ This is a sample project where I experimented with different aspects of the [And
 - passing arguments between Fragments via [Safe Args](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args)
 - starting Fragments for result and waiting for that result (similar to Activity's `startActivityForResult` and `onActivityResult`)
 - transitions between fragments with shared Toolbar
+- a simple Toolbar navigation icon morphing ("<-" -> "X")
 
 There's no MVP/MVVM/MVI here, no dependency injection - just the Navigation Component to make it simple.
 

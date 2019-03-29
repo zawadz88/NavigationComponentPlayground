@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="ic_back" type="drawable" format="reference">@drawable/abc_ic_ab_back_material</item>
+    <item name="ic_clear" type="drawable" format="reference">@drawable/abc_ic_clear_material</item>
 
 </resources>
