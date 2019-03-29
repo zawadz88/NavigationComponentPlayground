@@ -8,4 +8,5 @@
     <string name="fragment_label_login_no_password">Login without password screen</string>
     <string name="fragment_label_apply">Apply screen</string>
     <string name="fragment_label_deep_link">Deep link screen</string>
+    <string name="transition_name_appbar">appbar</string>
 </resources>

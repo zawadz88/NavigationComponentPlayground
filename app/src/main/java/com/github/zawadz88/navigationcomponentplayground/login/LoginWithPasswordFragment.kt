@@ -15,7 +15,7 @@ class LoginWithPasswordFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        initEnterTransitions()
         return inflater.inflate(R.layout.fragment_login_with_password, container, false)
     }
 

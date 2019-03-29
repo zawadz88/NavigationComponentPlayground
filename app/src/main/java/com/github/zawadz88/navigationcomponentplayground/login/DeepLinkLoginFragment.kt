@@ -17,10 +17,7 @@ class DeepLinkLoginFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_deep_link_login, container, false)
-    }
+    ): View? = inflater.inflate(R.layout.fragment_deep_link_login, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

@@ -9,13 +9,14 @@ This is a sample project where I experimented with different aspects of the [And
 - custom handling of implicit deep links (more on that later)
 - passing arguments between Fragments via [Safe Args](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args)
 - starting Fragments for result and waiting for that result (similar to Activity's `startActivityForResult` and `onActivityResult`)
+- transitions between fragments with shared Toolbar
 
 There's no MVP/MVVM/MVI here, no dependency injection - just the Navigation Component to make it simple.
 
 ## How does it look like?
 
 ### App
-<img src ="./art/playground_app.gif" width="360" />
+<img src ="./art/navigation_playground_app.gif" width="360" />
 
 ### Graph
 <img src ="./art/nav_graph.png" width="640" />

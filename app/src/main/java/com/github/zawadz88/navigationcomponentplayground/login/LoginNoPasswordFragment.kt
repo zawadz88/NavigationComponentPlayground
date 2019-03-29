@@ -21,7 +21,7 @@ class LoginNoPasswordFragment : BaseFragment(), BackNavigationListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        initEnterTransitions()
         return inflater.inflate(R.layout.fragment_login_no_password, container, false)
     }
 
@@ -31,7 +31,7 @@ class LoginNoPasswordFragment : BaseFragment(), BackNavigationListener {
             navigateBackWithResult(NAVIGATION_RESULT_OK)
         }
         fragmentLoginWithPasswordButton.setOnClickListener {
-            navigateForResult(REQUEST_CODE_COLLECTIVE_LOGIN, LoginNoPasswordFragmentDirections.actionLoginNoPasswordFragmentToLoginWithPasswordFragment())
+            navigateForResultWithAnimation(REQUEST_CODE_COLLECTIVE_LOGIN, LoginNoPasswordFragmentDirections.actionLoginNoPasswordFragmentToLoginWithPasswordFragment())
         }
     }
 

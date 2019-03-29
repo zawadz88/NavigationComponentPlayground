@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.github.zawadz88.navigationcomponentplayground.login.NAVIGATION_RESULT_LOGGED_IN
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationListener
@@ -27,7 +26,7 @@ class OfferFragment : BackNavigationListener, BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        initEnterTransitions()
         return inflater.inflate(R.layout.fragment_offer, container, false)
     }
 
@@ -36,10 +35,10 @@ class OfferFragment : BackNavigationListener, BaseFragment() {
         Toast.makeText(requireContext(), "myId: $myId", Toast.LENGTH_SHORT).show()
         fragmentApplyButton.setOnClickListener { goToApply() }
         fragmentLoginWithPasswordButton.setOnClickListener {
-            navigateForResult(REQUEST_CODE_LOGIN, OfferFragmentDirections.actionOfferFragmentToLoginWithPasswordFragment())
+            navigateForResultWithAnimation(REQUEST_CODE_LOGIN, OfferFragmentDirections.actionOfferFragmentToLoginWithPasswordFragment())
         }
         fragmentLoginButton.setOnClickListener {
-            navigateForResult(REQUEST_CODE_LOGIN, OfferFragmentDirections.actionOfferFragmentToLoginNoPaswordFragment())
+            navigateForResultWithAnimation(REQUEST_CODE_LOGIN, OfferFragmentDirections.actionOfferFragmentToLoginNoPaswordFragment())
         }
     }
 
@@ -53,6 +52,6 @@ class OfferFragment : BackNavigationListener, BaseFragment() {
     }
 
     private fun goToApply() {
-        findNavController().navigate(OfferFragmentDirections.actionOfferFragmentToApplyFragment())
+        navigateForwardWithAnimation(OfferFragmentDirections.actionOfferFragmentToApplyFragment())
     }
 }

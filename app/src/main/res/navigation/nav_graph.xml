@@ -18,8 +18,7 @@
             app:destination="@id/loginNoPasswordFragment" />
         <action
             android:id="@+id/action_homeFragment_to_loginWithPasswordFragment"
-            app:destination="@id/loginWithPasswordFragment"
-            app:launchSingleTop="false" />
+            app:destination="@id/loginWithPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginWithPasswordFragment"

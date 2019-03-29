@@ -11,7 +11,9 @@ import android.view.ViewGroup
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavDeepLinkBuilder
-import androidx.navigation.fragment.findNavController
+import com.github.zawadz88.navigationcomponentplayground.HomeFragmentDirections.Companion.actionHomeFragmentToLoginNoPasswordFragment
+import com.github.zawadz88.navigationcomponentplayground.HomeFragmentDirections.Companion.actionHomeFragmentToLoginWithPasswordFragment
+import com.github.zawadz88.navigationcomponentplayground.HomeFragmentDirections.Companion.actionHomeFragmentToOfferFragment
 import kotlinx.android.synthetic.main.fragment_home.fragmentLoginButton
 import kotlinx.android.synthetic.main.fragment_home.fragmentLoginWithPasswordButton
 import kotlinx.android.synthetic.main.fragment_home.fragmentOfferButton
@@ -36,13 +38,13 @@ class HomeFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         fragmentLoginButton.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToLoginNoPasswordFragment())
+            navigateForwardWithAnimation(actionHomeFragmentToLoginNoPasswordFragment())
         }
         fragmentLoginWithPasswordButton.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToLoginWithPasswordFragment())
+            navigateForwardWithAnimation(actionHomeFragmentToLoginWithPasswordFragment())
         }
         fragmentOfferButton.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToOfferFragment(1234))
+            navigateForwardWithAnimation(actionHomeFragmentToOfferFragment(1234))
         }
         sendNotificationButton.setOnClickListener { prepareAndSendNotification() }
     }
