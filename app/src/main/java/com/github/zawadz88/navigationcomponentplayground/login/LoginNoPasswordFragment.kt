@@ -9,19 +9,20 @@ import com.github.zawadz88.navigationcomponentplayground.NAVIGATION_RESULT_OK
 import com.github.zawadz88.navigationcomponentplayground.R
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationListener
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationResult
-import kotlinx.android.synthetic.main.fragment_collective_login.fragmentLoginWithPasswordButton
-import kotlinx.android.synthetic.main.fragment_collective_login.logMeInButton
+import kotlinx.android.synthetic.main.fragment_login_no_password.fragmentLoginWithPasswordButton
+import kotlinx.android.synthetic.main.fragment_login_no_password.logMeInButton
+import timber.log.Timber
 
 private const val REQUEST_CODE_COLLECTIVE_LOGIN = 2
 
-class CollectiveLoginFragment : BaseFragment(), BackNavigationListener {
+class LoginNoPasswordFragment : BaseFragment(), BackNavigationListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_collective_login, container, false)
+        return inflater.inflate(R.layout.fragment_login_no_password, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -30,12 +31,12 @@ class CollectiveLoginFragment : BaseFragment(), BackNavigationListener {
             navigateBackWithResult(NAVIGATION_RESULT_OK)
         }
         fragmentLoginWithPasswordButton.setOnClickListener {
-            navigateForResult(REQUEST_CODE_COLLECTIVE_LOGIN, CollectiveLoginFragmentDirections.actionCollectiveLoginFragmentToLoginWithPasswordFragment())
+            navigateForResult(REQUEST_CODE_COLLECTIVE_LOGIN, LoginNoPasswordFragmentDirections.actionLoginNoPasswordFragmentToLoginWithPasswordFragment())
         }
     }
 
     override fun onNavigationResult(result: BackNavigationResult) {
-        println("CollectiveLoginFragment onNavigationResult: $result")
+        Timber.d("onNavigationResult: $result")
         if (result.requestCode == REQUEST_CODE_COLLECTIVE_LOGIN && result.resultCode == NAVIGATION_RESULT_OK) {
             navigateBackWithResult(NAVIGATION_RESULT_OK)
         }

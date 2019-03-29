@@ -14,8 +14,8 @@
             android:id="@+id/action_homeFragment_to_offerFragment"
             app:destination="@id/offerFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_collectiveLoginFragment"
-            app:destination="@id/collectiveLoginFragment" />
+            android:id="@+id/action_homeFragment_to_loginNoPasswordFragment"
+            app:destination="@id/loginNoPasswordFragment" />
         <action
             android:id="@+id/action_homeFragment_to_loginWithPasswordFragment"
             app:destination="@id/loginWithPasswordFragment"
@@ -43,8 +43,8 @@
             android:id="@+id/action_offerFragment_to_loginWithPasswordFragment"
             app:destination="@id/loginWithPasswordFragment" />
         <action
-            android:id="@+id/action_offerFragment_to_collectiveLoginFragment"
-            app:destination="@id/collectiveLoginFragment" />
+            android:id="@+id/action_offerFragment_to_loginNoPaswordFragment"
+            app:destination="@id/loginNoPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/applyFragment"
@@ -52,12 +52,12 @@
         android:label="@string/fragment_label_apply"
         tools:layout="@layout/fragment_apply" />
     <fragment
-        android:id="@+id/collectiveLoginFragment"
-        android:name="com.github.zawadz88.navigationcomponentplayground.login.CollectiveLoginFragment"
-        android:label="@string/fragment_label_collective_login"
-        tools:layout="@layout/fragment_collective_login">
+        android:id="@+id/loginNoPasswordFragment"
+        android:name="com.github.zawadz88.navigationcomponentplayground.login.LoginNoPasswordFragment"
+        android:label="@string/fragment_label_login_no_password"
+        tools:layout="@layout/fragment_login_no_password">
         <action
-            android:id="@+id/action_collectiveLoginFragment_to_loginWithPasswordFragment"
+            android:id="@+id/action_loginNoPasswordFragment_to_loginWithPasswordFragment"
             app:destination="@id/loginWithPasswordFragment" />
     </fragment>
     <fragment

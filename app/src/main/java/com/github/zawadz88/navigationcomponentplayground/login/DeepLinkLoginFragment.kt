@@ -27,7 +27,7 @@ class DeepLinkLoginFragment : BaseFragment() {
 
         // imitates a successful login
         Handler().postDelayed(3000L) {
-            if (navigateBackWithResult(destination = R.id.collectiveLoginFragment, resultCode = NAVIGATION_RESULT_LOGGED_IN)) return@postDelayed
+            if (navigateBackWithResult(destination = R.id.loginNoPasswordFragment, resultCode = NAVIGATION_RESULT_LOGGED_IN)) return@postDelayed
             if (navigateBackWithResult(destination = R.id.loginWithPasswordFragment, resultCode = NAVIGATION_RESULT_LOGGED_IN)) return@postDelayed
             findNavController().popBackStack()
         }

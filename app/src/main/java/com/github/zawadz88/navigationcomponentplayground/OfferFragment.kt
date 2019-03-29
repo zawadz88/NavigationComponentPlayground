@@ -13,6 +13,7 @@ import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigati
 import kotlinx.android.synthetic.main.fragment_offer.fragmentApplyButton
 import kotlinx.android.synthetic.main.fragment_offer.fragmentLoginButton
 import kotlinx.android.synthetic.main.fragment_offer.fragmentLoginWithPasswordButton
+import timber.log.Timber
 
 private const val REQUEST_CODE_LOGIN = 1
 
@@ -38,12 +39,12 @@ class OfferFragment : BackNavigationListener, BaseFragment() {
             navigateForResult(REQUEST_CODE_LOGIN, OfferFragmentDirections.actionOfferFragmentToLoginWithPasswordFragment())
         }
         fragmentLoginButton.setOnClickListener {
-            navigateForResult(REQUEST_CODE_LOGIN, OfferFragmentDirections.actionOfferFragmentToCollectiveLoginFragment())
+            navigateForResult(REQUEST_CODE_LOGIN, OfferFragmentDirections.actionOfferFragmentToLoginNoPaswordFragment())
         }
     }
 
     override fun onNavigationResult(result: BackNavigationResult) {
-        println("OfferFragment onNavigationResult: $result")
+        Timber.d("onNavigationResult: $result")
         if ((result.requestCode == REQUEST_CODE_LOGIN && result.resultCode == NAVIGATION_RESULT_OK) ||
             result.resultCode == NAVIGATION_RESULT_LOGGED_IN
         ) {

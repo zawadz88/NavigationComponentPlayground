@@ -5,12 +5,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
-import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationListener
-import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationResult
-import kotlin.properties.Delegates
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,12 +17,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        println("Got new intent: ${intent?.data}")
+        Timber.d("Got new intent: ${intent?.data}")
 
         intent?.data ?: return
 
         navController().navigate(R.id.deepLinkLoginFragment)
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -44,5 +41,4 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun navController() = findNavController(R.id.nav_host_fragment)
-
 }

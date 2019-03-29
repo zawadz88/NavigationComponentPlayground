@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationListener
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationResult
 import kotlinx.android.synthetic.main.appbar.toolbar
+import timber.log.Timber
 import kotlin.properties.Delegates
 
 private const val ARGUMENT_NAVIGATION_REQUEST_CODE = "NAVIGATION_REQUEST_CODE"
@@ -31,22 +32,22 @@ abstract class BaseFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        println("onCreate: ${this::class.java.simpleName}")
+        Timber.d("onCreate: ${this::class.java.simpleName}")
     }
 
     override fun onStart() {
         super.onStart()
-        println("onStart: ${this::class.java.simpleName}")
+        Timber.d("onStart: ${this::class.java.simpleName}")
     }
 
     override fun onStop() {
         super.onStop()
-        println("onStop: ${this::class.java.simpleName}")
+        Timber.d("onStop: ${this::class.java.simpleName}")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        println("onDestroy: ${this::class.java.simpleName}")
+        Timber.d("onDestroy: ${this::class.java.simpleName}")
     }
 
     @CallSuper

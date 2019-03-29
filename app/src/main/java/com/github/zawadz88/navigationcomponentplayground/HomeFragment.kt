@@ -36,7 +36,7 @@ class HomeFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         fragmentLoginButton.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCollectiveLoginFragment())
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToLoginNoPasswordFragment())
         }
         fragmentLoginWithPasswordButton.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToLoginWithPasswordFragment())
