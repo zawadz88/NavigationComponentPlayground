@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:name="com.github.zawadz88.navigationcomponentplayground.InstantiatingNavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -17,6 +17,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

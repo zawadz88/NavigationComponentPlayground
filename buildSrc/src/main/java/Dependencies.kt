@@ -10,14 +10,14 @@ object Versions {
 
     // Plugins
     const val androidGradlePlugin = "3.3.2"
-    const val safeArgs = "2.0.0"
+    const val safeArgs = "2.1.0-alpha02"
 
     // AndroidX
     const val appcompat = "1.0.2"
     const val coreKtx = "1.0.1"
     const val constraintlayout = "1.1.3"
     const val legacySupport = "1.0.0"
-    const val navigation = "1.0.0"
+    const val navigation = "2.1.0-alpha02"
 
     // Google
     const val material = "1.1.0-alpha04"
@@ -46,10 +46,8 @@ object Dependencies {
     }
 
     object AndroidArchitecture {
-        const val navigation = "android.arch.navigation:navigation-fragment:${Versions.navigation}"
-        const val navigationKtx = "android.arch.navigation:navigation-fragment-ktx:${Versions.navigation}"
-        const val navigationUi = "android.arch.navigation:navigation-ui:${Versions.navigation}"
-        const val navigationUiKtx = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
+        const val navigationKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+        const val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     }
 
     object Google {

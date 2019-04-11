@@ -16,11 +16,16 @@ import timber.log.Timber
 
 private const val REQUEST_CODE_LOGIN = 1
 
-class OfferFragment : BackNavigationListener, BaseFragment() {
+class OfferFragment(private val someDep : String) : BackNavigationListener, BaseFragment() {
 
     private val args: OfferFragmentArgs by navArgs()
 
     private val myId: Int by lazy { args.myId }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Timber.d("Constructor param: $someDep")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

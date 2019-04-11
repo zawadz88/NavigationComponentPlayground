@@ -29,9 +29,7 @@ dependencies {
     implementation(Dependencies.AndroidX.constraintlayout)
     implementation(Dependencies.AndroidX.legacySupport)
     implementation(Dependencies.Google.material)
-    implementation(Dependencies.AndroidArchitecture.navigation)
     implementation(Dependencies.AndroidArchitecture.navigationKtx)
-    implementation(Dependencies.AndroidArchitecture.navigationUi)
     implementation(Dependencies.AndroidArchitecture.navigationUiKtx)
     implementation(Dependencies.Util.timber)
 }
