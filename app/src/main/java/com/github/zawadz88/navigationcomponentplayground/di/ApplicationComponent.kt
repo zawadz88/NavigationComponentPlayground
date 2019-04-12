@@ -16,9 +16,6 @@ import javax.inject.Singleton
 )
 interface ApplicationComponent : AndroidInjector<CustomApplication> {
 
-    @Component.Builder
-    abstract class Builder : AndroidInjector.Builder<CustomApplication>() {
-
-        abstract override fun build(): ApplicationComponent
-    }
+    @Component.Factory
+    abstract class Factory : AndroidInjector.Factory<CustomApplication>
 }
