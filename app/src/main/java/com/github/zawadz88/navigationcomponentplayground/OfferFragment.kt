@@ -1,5 +1,6 @@
 package com.github.zawadz88.navigationcomponentplayground
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,14 +10,20 @@ import androidx.navigation.fragment.navArgs
 import com.github.zawadz88.navigationcomponentplayground.login.NAVIGATION_RESULT_LOGGED_IN
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationListener
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationResult
+import com.github.zawadz88.navigationcomponentplayground.util.TextProducer
 import kotlinx.android.synthetic.main.fragment_offer.fragmentApplyButton
 import kotlinx.android.synthetic.main.fragment_offer.fragmentLoginButton
 import kotlinx.android.synthetic.main.fragment_offer.fragmentLoginWithPasswordButton
 import timber.log.Timber
+import javax.inject.Inject
 
 private const val REQUEST_CODE_LOGIN = 1
 
-class OfferFragment(private val someDep : String) : BackNavigationListener, BaseFragment() {
+class OfferFragment
+@Inject constructor(
+    private val sharedPreferences: SharedPreferences,
+    private val textProducer: TextProducer
+) : BackNavigationListener, BaseFragment() {
 
     private val args: OfferFragmentArgs by navArgs()
 
@@ -24,7 +31,7 @@ class OfferFragment(private val someDep : String) : BackNavigationListener, Base
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Timber.d("Constructor param: $someDep")
+        Timber.d("Constructor sharedPreferences: $sharedPreferences")
     }
 
     override fun onCreateView(
@@ -37,7 +44,7 @@ class OfferFragment(private val someDep : String) : BackNavigationListener, Base
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Toast.makeText(requireContext(), "myId: $myId", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), textProducer.produceOfferMessage(myId), Toast.LENGTH_SHORT).show()
         fragmentApplyButton.setOnClickListener { goToApply() }
         fragmentLoginWithPasswordButton.setOnClickListener {
             navigateForResultWithAnimation(REQUEST_CODE_LOGIN, OfferFragmentDirections.actionOfferFragmentToLoginWithPasswordFragment())

@@ -22,6 +22,9 @@ object Versions {
     // Google
     const val material = "1.1.0-alpha04"
 
+    // DI
+    const val dagger = "2.22"
+
     // Utilities
     const val timber = "4.7.1"
 }
@@ -56,5 +59,12 @@ object Dependencies {
 
     object Util {
         const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+    }
+
+    object Injection {
+        const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+        const val daggerAndroid = "com.google.dagger:dagger-android-support:${Versions.dagger}"
+        const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
+        const val daggerAnnotationProcessor = "com.google.dagger:dagger-android-processor:${Versions.dagger}"
     }
 }

@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
     kotlin("android.extensions")
     id("androidx.navigation.safeargs.kotlin")
 }
@@ -32,4 +33,9 @@ dependencies {
     implementation(Dependencies.AndroidArchitecture.navigationKtx)
     implementation(Dependencies.AndroidArchitecture.navigationUiKtx)
     implementation(Dependencies.Util.timber)
+    implementation(Dependencies.Injection.dagger)
+    implementation(Dependencies.Injection.daggerAndroid)
+
+    kapt(Dependencies.Injection.daggerCompiler)
+    kapt(Dependencies.Injection.daggerAnnotationProcessor)
 }
