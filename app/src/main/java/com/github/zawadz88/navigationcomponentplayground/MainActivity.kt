@@ -1,18 +1,24 @@
 package com.github.zawadz88.navigationcomponentplayground
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import dagger.android.support.DaggerAppCompatActivity
 import timber.log.Timber
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
+
+    @Inject
+    protected lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Timber.d("sharedPreferences: $sharedPreferences")
     }
 
     override fun onNewIntent(intent: Intent?) {

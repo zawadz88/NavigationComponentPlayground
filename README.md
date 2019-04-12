@@ -11,8 +11,9 @@ This is a sample project where I experimented with different aspects of the [And
 - starting Fragments for result and waiting for that result (similar to Activity's `startActivityForResult` and `onActivityResult`)
 - transitions between fragments with shared Toolbar
 - a simple Toolbar navigation icon morphing ("<-" -> "X")
+- base Dagger setup with a [FragmentFactory](https://developer.android.com/reference/androidx/fragment/app/FragmentFactory) used to create Fragments with non-default constructors
 
-There's no MVP/MVVM/MVI here, no dependency injection - just the Navigation Component to make it simple.
+There's no MVP/MVVM/MVI here - just the Navigation Component to make the sample simple.
 
 ## How does it look like?
 
