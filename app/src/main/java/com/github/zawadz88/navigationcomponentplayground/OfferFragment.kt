@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.github.zawadz88.navigationcomponentplayground.di.factory.InjectingViewModelFactory
 import com.github.zawadz88.navigationcomponentplayground.login.NAVIGATION_RESULT_LOGGED_IN
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationListener
 import com.github.zawadz88.navigationcomponentplayground.navigation.BackNavigationResult
@@ -21,6 +23,7 @@ private const val REQUEST_CODE_LOGIN = 1
 
 class OfferFragment
 @Inject constructor(
+    private val viewModelFactory: InjectingViewModelFactory,
     private val sharedPreferences: SharedPreferences,
     private val textProducer: TextProducer
 ) : BackNavigationListener, BaseFragment() {
@@ -29,7 +32,12 @@ class OfferFragment
 
     private val myId: Int by lazy { args.myId }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    private val offerViewModel: OfferViewModel by viewModels {
+        viewModelFactory
+    }
+
+
+        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Timber.d("Constructor sharedPreferences: $sharedPreferences")
     }
@@ -44,7 +52,7 @@ class OfferFragment
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Toast.makeText(requireContext(), textProducer.produceOfferMessage(myId), Toast.LENGTH_SHORT).show()
+        //Toast.makeText(requireContext(), textProducer.produceOfferMessage(myId), Toast.LENGTH_SHORT).show()
         fragmentApplyButton.setOnClickListener { goToApply() }
         fragmentLoginWithPasswordButton.setOnClickListener {
             navigateForResultWithAnimation(REQUEST_CODE_LOGIN, OfferFragmentDirections.actionOfferFragmentToLoginWithPasswordFragment())

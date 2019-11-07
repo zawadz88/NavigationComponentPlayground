@@ -10,20 +10,20 @@ object Versions {
 
     // Plugins
     const val androidGradlePlugin = "3.3.2"
-    const val safeArgs = "2.1.0-alpha02"
+    const val safeArgs = "2.1.0"
 
     // AndroidX
-    const val appcompat = "1.0.2"
-    const val coreKtx = "1.0.1"
+    const val appcompat = "1.1.0"
+    const val coreKtx = "1.1.0"
     const val constraintlayout = "1.1.3"
     const val legacySupport = "1.0.0"
-    const val navigation = "2.1.0-alpha02"
+    const val navigation = "2.1.0"
 
     // Google
     const val material = "1.1.0-alpha04"
 
     // DI
-    const val dagger = "2.22"
+    const val dagger = "2.25.2"
 
     // Utilities
     const val timber = "4.7.1"

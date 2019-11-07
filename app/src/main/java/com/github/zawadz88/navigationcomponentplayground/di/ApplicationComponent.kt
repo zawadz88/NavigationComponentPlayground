@@ -1,21 +1,28 @@
 package com.github.zawadz88.navigationcomponentplayground.di
 
+import android.app.Application
 import com.github.zawadz88.navigationcomponentplayground.CustomApplication
 import com.github.zawadz88.navigationcomponentplayground.di.module.AppModule
+import com.github.zawadz88.navigationcomponentplayground.di.module.MainActivityModule
+import dagger.BindsInstance
 import dagger.Component
-import dagger.android.AndroidInjector
-import dagger.android.support.AndroidSupportInjectionModule
+import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
 @Singleton
 @Component(
     modules = [
-        AndroidSupportInjectionModule::class,
-        AppModule::class
+        AndroidInjectionModule::class,
+        AppModule::class,
+        MainActivityModule::class
     ]
 )
-interface ApplicationComponent : AndroidInjector<CustomApplication> {
+interface ApplicationComponent {
 
     @Component.Factory
-    abstract class Factory : AndroidInjector.Factory<CustomApplication>
+    interface Factory {
+        fun create(@BindsInstance application: Application): ApplicationComponent
+    }
+
+    fun inject(customApp: CustomApplication)
 }
