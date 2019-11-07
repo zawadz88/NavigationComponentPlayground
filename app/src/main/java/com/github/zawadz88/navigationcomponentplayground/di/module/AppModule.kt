@@ -10,14 +10,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 
-@Module
+@Module(includes = [ViewModelModule::class])
 abstract class AppModule {
-
-    @Binds
-    abstract fun bindApplication(app: CustomApplication): Application
-
-    @ContributesAndroidInjector(modules = [NavHostModule::class])
-    abstract fun mainActivityInjector(): MainActivity
 
     @Module
     companion object {
